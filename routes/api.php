@@ -25,7 +25,7 @@ Route::get('/users', function (Request $request) {
 });
 
 Route::get('/pos', function (Request $request) {
-    return Pos::with('hashtags')->all();
+    return Pos::with('hashtags')->get();
 });
 
 Route::patch('/pos/{pos}', function (Request $request, Pos $pos) {
