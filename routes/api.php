@@ -76,7 +76,9 @@ Route::post('/route', function (Request $request) {
         'user_id' => 'required'
     ]);
 
-    return User::findOrFail($request->user_id)->update([
-        'route' => $request->route
-    ]);
+    $user = User::findOrFail($request->user_id);
+    $user->route = $request->route;
+    $user->save();
+
+    return $user;
 });
