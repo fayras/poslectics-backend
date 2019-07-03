@@ -32,7 +32,7 @@ Route::patch('/pos/{pos}', function (Request $request, Pos $pos) {
     $pos->fill($request->all());
 
     if($request->has('hashtags')) {
-        $pos->createMany($request->hashtags);
+        $pos->hashtags()->createMany($request->hashtags);
     }
 
     return $pos;
@@ -52,7 +52,7 @@ Route::post('/pos', function(Request $request) {
     ]);
 
     if($request->has('hashtags')) {
-        $pos->createMany($request->hashtags);
+        $pos->hashtags()->createMany($request->hashtags);
     }
 
     return $pos;
