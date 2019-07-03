@@ -30,6 +30,12 @@ Route::get('/pos', function (Request $request) {
 
 Route::patch('/pos/{pos}', function (Request $request, Pos $pos) {
     $pos->fill($request->all());
+
+    if($request->has('hashtags')) {
+        $pos->createMany($request->hashtags);
+    }
+
+    return $pos;
 });
 
 Route::post('/pos', function(Request $request) {
@@ -39,11 +45,17 @@ Route::post('/pos', function(Request $request) {
         'user_id' => 'required'
     ]);
 
-    return Pos::create([
+    $pos = Pos::create([
         'lat' => $request->lat,
         'long' => $request->long,
         'user_id' => $request->user_id,
     ]);
+
+    if($request->has('hashtags')) {
+        $pos->createMany($request->hashtags);
+    }
+
+    return $pos;
 });
 
 Route::patch('/hashtags/{hashtag}', function (Request $request, Hashtag $hashtag) {
