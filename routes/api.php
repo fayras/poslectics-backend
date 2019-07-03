@@ -59,7 +59,7 @@ Route::post('/pos', function(Request $request) {
 });
 
 Route::patch('/hashtags/{hashtag}', function (Request $request, Hashtag $hashtag) {
-    $hashtag->fill($request->all());
+    return $hashtag->fill($request->all());
 });
 
 Route::get('/route', function (Request $request) {
