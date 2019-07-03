@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pos extends Model
 {
+    protected $guarded = [];
+
     function hashtags() {
         return $this->hasMany(Hashtag::class);
     }

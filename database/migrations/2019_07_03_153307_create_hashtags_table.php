@@ -24,7 +24,7 @@ class CreateHashtagsTable extends Migration
         });
 
         Schema::table('users', function(Blueprint $table) {
-            $table->json('route');
+            $table->json('route')->nullable();
         });
     }
 
