@@ -1,11 +1,11 @@
-POSletics API
+# POSletics API
 
-# <span style="color:grey">GET</span> */users*
+## GET */users*
 
 Liefert alle Benutzer zurück
 
 Als Antwort bekommt man ein Array mit allen Benutzern zurück:
-```json
+```js
 [
   {
     "id": 1,
@@ -18,13 +18,13 @@ Als Antwort bekommt man ein Array mit allen Benutzern zurück:
 ]
 ```
 
-# <span style="color:grey">GET</span> */pos*
+## GET */pos*
 
 Liefert alle verfügbaren POS samt Hashtags zurück
 
 Als Antwort bekommt man alle verfügbaren POS samt Hashtags zurück.
 
-```json
+```js
 [
   {
     "id": 1,
@@ -51,12 +51,12 @@ Als Antwort bekommt man alle verfügbaren POS samt Hashtags zurück.
 ]
 ```
 
-# <span style="color:grey">POST</span> */pos*
+## POST */pos*
 
 Erzeugt einen neuen POS.
 
 Dabei werden folgende Werte als JSON Body erwartet:
-```json
+```js
 {
   "lat"       // Pflicht, Zahl, Braitengrad
   "lng"       // Pflicht, Zahl, Längengrad
@@ -66,7 +66,7 @@ Dabei werden folgende Werte als JSON Body erwartet:
 ```
 
 Ein Hashtag hat die Struktur:
-```json
+```js
 {
   "name"
   "upvotes"
@@ -74,7 +74,7 @@ Ein Hashtag hat die Struktur:
 ```
 
 Beispiel:
-```json
+```js
 {
   "lat": 123,
   "lng": 123,
@@ -86,12 +86,12 @@ Beispiel:
 }
 ```
 
-# <span style="color:grey">PATCH</span> */pos/*{id}
+## PATCH */pos/*{id}
 
 Bearbeitet einen bestehenden POS
 
 Dabei werden folgende Werte als JSON Body erwartet:
-```json
+```js
 {
   "lat"       // Optional, Braitengrad
   "lng"       // Optional, Längengrad
@@ -99,24 +99,24 @@ Dabei werden folgende Werte als JSON Body erwartet:
 }
 ```
 
-# <span style="color:grey">PATCH</span> */hashtags/*{id}
+## PATCH */hashtags/*{id}
 
 Bearbeitet einen bestehenden Hashtag
 
 Dabei werden folgende Werte als JSON Body erwartet:
-```json
+```js
 {
   "name"       // Optional, Braitengrad
   "upvotes"    // Optional, Längengrad
 }
 ```
 
-# <span style="color:grey">GET</span> */route*
+## GET */route*
 
 Liefert die zuletzt erstellte Route von einem Benutzer
 
 Dabei werden folgende Werte als JSON Body erwartet:
-```json
+```js
 {
   "user_id"     // Pflicht, ID eines Benutzers
 }
@@ -129,16 +129,16 @@ Alternativ kann auch die ID als Querystring übergeben werden. Z.B:
 ```
 
 Als Antwort bekommt man ein Array mit den IDs der jeweiligen POS der Route. Z.B:
-```json
+```js
 [1, 6, 9, 4]
 ```
 
-# <span style="color:grey">POST</span> */route*
+## POST */route*
 
 Speichert eine Route zu einem bestimmten Benutzer
 
 Dabei werden folgende Werte als JSON Body erwartet:
-```json
+```js
 {
   "user_id"     // Pflicht, ID eines Benutzers
   "route"       // Pflicht, Array mit IDs von POS
@@ -146,7 +146,7 @@ Dabei werden folgende Werte als JSON Body erwartet:
 ```
 
 Beispiel:
-```json
+```js
 {
   "user_id": 1,
   "route": [1, 2, 3, 4]
