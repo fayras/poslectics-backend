@@ -41,13 +41,13 @@ Route::patch('/pos/{pos}', function (Request $request, Pos $pos) {
 Route::post('/pos', function(Request $request) {
     $request->validate([
         'lat' => 'required',
-        'long' => 'required',
+        'lng' => 'required',
         'user_id' => 'required'
     ]);
 
     $pos = Pos::create([
         'lat' => $request->lat,
-        'long' => $request->long,
+        'lng' => $request->lng,
         'user_id' => $request->user_id,
     ]);
 
@@ -82,3 +82,8 @@ Route::post('/route', function (Request $request) {
 
     return $user;
 });
+
+// TODO:
+// - lat und long übergeben bei route erstellen
+// - lat long bei route abfragen
+// - long -> lng umbenennen
