@@ -28,6 +28,20 @@ Route::get('/pos', function (Request $request) {
     return Pos::with('hashtags')->get();
 });
 
+Route::post('/pos/upvote/{pos}', function (Request $request, Pos $pos) {
+    $pos->upvotes += 1;
+    $pos->save();
+
+    return $pos;
+});
+
+Route::post('/pos/downvote/{pos}', function (Request $request, Pos $pos) {
+    $pos->upvotes -= 1;
+    $pos->save();
+
+    return $pos;
+});
+
 Route::patch('/pos/{pos}', function (Request $request, Pos $pos) {
     $pos->fill($request->all());
 
