@@ -76,6 +76,20 @@ Route::patch('/hashtags/{hashtag}', function (Request $request, Hashtag $hashtag
     return $hashtag->fill($request->all());
 });
 
+Route::post('/hashtags/upvote/{hashtag}', function (Request $request, Hashtag $hashtag) {
+    $hashtag->upvotes += 1;
+    $hashtag->save();
+
+    return $hashtag;
+});
+
+Route::post('/hashtags/downvote/{hashtag}', function (Request $request, Hashtag $hashtag) {
+    $hashtag->upvotes -= 1;
+    $hashtag->save();
+
+    return $hashtag;
+});
+
 Route::get('/route', function (Request $request) {
     $request->validate([
         'user_id' => 'required'
