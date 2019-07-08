@@ -99,6 +99,14 @@ Dabei werden folgende Werte als JSON Body erwartet:
 }
 ```
 
+## POST */pos/upvote/*{id}
+
+Upvotes eines POS +1
+
+## POST */pos/downvote/*{id}
+
+Upvotes eines POS -1
+
 ## PATCH */hashtags/*{id}
 
 Bearbeitet einen bestehenden Hashtag
@@ -132,6 +140,14 @@ Als Antwort bekommt man ein Array mit den IDs der jeweiligen POS der Route. Z.B:
 ```js
 [1, 6, 9, 4]
 ```
+
+## POST */hashtags/upvote/*{id}
+
+Upvotes eines Hashtags +1
+
+## POST */hashtags/downvote/*{id}
+
+Upvotes eines Hashtags -1
 
 ## POST */route*
 
